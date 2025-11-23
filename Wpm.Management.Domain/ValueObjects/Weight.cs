@@ -15,4 +15,5 @@ public record Weight
     {
         return new Weight(value);
     }
+
 }
