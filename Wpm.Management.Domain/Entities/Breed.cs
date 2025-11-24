@@ -1,6 +1,6 @@
 ﻿using Wpm.Management.Domain.ValueObjects;
 
-namespace Wpm.Management.Domain;
+namespace Wpm.Management.Domain.Entities;
 public class Breed : Entity
 {
     public string Name { get; init; }
@@ -8,8 +8,8 @@ public class Breed : Entity
     public WeightRange FemaleIdealWeightRange { get; init; }
 
     public Breed(Guid id,
-                string name, 
-                WeightRange maleWeightRange, 
+                string name,
+                WeightRange maleWeightRange,
                 WeightRange femaleWeightRange)
     {
         Id = id;

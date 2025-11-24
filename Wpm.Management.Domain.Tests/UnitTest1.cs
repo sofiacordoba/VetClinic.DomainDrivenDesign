@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Drawing;
 using System.Xml.Linq;
-using Wpm.Management.Domain;
+using Wpm.Management.Domain.Entities;
+using Wpm.Management.Domain.Services;
 using Wpm.Management.Domain.ValueObjects;
 
 namespace Wpm.Management.Domain.Tests;

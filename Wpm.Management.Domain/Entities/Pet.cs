@@ -1,10 +1,11 @@
-﻿using Wpm.Management.Domain.ValueObjects;
+﻿using Wpm.Management.Domain.Services;
+using Wpm.Management.Domain.ValueObjects;
 
-namespace Wpm.Management.Domain;
+namespace Wpm.Management.Domain.Entities;
 public class Pet : Entity
 {
     public string Name { get; init; }
-    public int Age { get; init; }    
+    public int Age { get; init; }
     public Weight Weight { get; private set; }
     public string Color { get; init; }
     public SexOfPetEnum SexOfPet { get; init; }
