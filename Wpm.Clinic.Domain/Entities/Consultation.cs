@@ -4,7 +4,8 @@ using Wpm.SharedKernel;
 namespace Wpm.Clinic.Domain.Entities;
 public class Consultation : AggregateRoot
 {
-    private readonly List<DrugAdministration> administeredDrugs;
+    private readonly List<DrugAdministration> administeredDrugs = new();
+    private readonly List<VitalSigns> vitalSignsReadings = new();
     public PatientId PatientId { get; init; }
     public Text Diagnosis { get; private set; }
     public Text Treatment { get; private set; }
@@ -12,7 +13,8 @@ public class Consultation : AggregateRoot
     public ConsultationStatus Status { get; private set; }
     public DateTime ConsultationStarted { get; init; }
     public DateTime? ConsultationEnd { get; private set; }
-    IReadOnlyCollection<DrugAdministration> AdministeredDrugs => administeredDrugs;
+    public IReadOnlyCollection<DrugAdministration> AdministeredDrugs => administeredDrugs;
+    public IReadOnlyCollection<VitalSigns> VitalSignsReadings => vitalSignsReadings;
     public Consultation(PatientId patientId)
     {
         Id = Guid.NewGuid();
@@ -27,6 +29,12 @@ public class Consultation : AggregateRoot
         {
             throw new InvalidOperationException("Consultation Finalized.");
         }
+    }
+
+    public void RegisterVitalSigns(IEnumerable<VitalSigns> vitalSings)
+    {
+        ValidateConsultationStatus();
+        vitalSignsReadings.AddRange(vitalSings);
     }
 
     public void End()
