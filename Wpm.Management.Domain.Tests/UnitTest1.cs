@@ -4,6 +4,7 @@ using System.Xml.Linq;
 using Wpm.Management.Domain.Entities;
 using Wpm.Management.Domain.Services;
 using Wpm.Management.Domain.ValueObjects;
+using Wpm.SharedKernel;
 
 namespace Wpm.Management.Domain.Tests;
 
