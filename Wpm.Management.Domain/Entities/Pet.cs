@@ -12,13 +12,13 @@ public class Pet : Entity
     public SexOfPetEnum SexOfPet { get; init; }
     public BreedId BreedId { get; init; }
     public WeightClassEnum WeightClass { get; private set; }
-    public Pet(Guid id, string name, int age, string color, SexOfPetEnum sexPet, BreedId breedId)
+    public Pet(Guid id, string name, int age, string color, SexOfPetEnum sexOfPet, BreedId breedId)
     {
         Id = id;
         Name = name;
         Age = age;
         Color = color;
-        SexOfPet = sexPet;
+        SexOfPet = sexOfPet;
         BreedId = breedId;
     }
 
