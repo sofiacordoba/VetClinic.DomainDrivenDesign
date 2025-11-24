@@ -7,7 +7,7 @@ public class Pet : Entity
 {
     public string Name { get; init; }
     public int Age { get; init; }
-    public Weight Weight { get; private set; }
+    public Weight? Weight { get; private set; }
     public string Color { get; init; }
     public SexOfPetEnum SexOfPet { get; init; }
     public BreedId BreedId { get; init; }
