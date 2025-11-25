@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using Wpm.Management.Api.Application;
 using Wpm.Management.Api.Infrastructure;
+using Wpm.Management.Domain.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -12,6 +14,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ManagementDbContext>(options => 
     options.UseSqlServer(connectionString));
+
+builder.Services.AddScoped<IBreedService, BreedService>();
+builder.Services.AddScoped<ManagementApplicationService>();
 
 var app = builder.Build();
 app.EnsureDbIsCreated();
